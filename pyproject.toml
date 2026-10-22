@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "nfl-stats-mcp"
+version = "0.1.0"
+description = "An MCP server that lets Claude (or any MCP client) answer NFL questions from nflverse play-by-play and player stats."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+keywords = ["mcp", "nfl", "football", "nflverse", "claude", "llm"]
+dependencies = [
+    "mcp>=2.3,<3",
+    "nflreadpy>=0.1.5",
+    "polars>=1.30",
+    "truststore>=0.10",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[project.scripts]
+nfl-stats-mcp = "nfl_stats_mcp.server:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/nfl_stats_mcp"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+markers = ["live: hits the real nflverse data (network required)"]
+addopts = "-m 'not live'"
