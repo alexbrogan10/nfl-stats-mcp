@@ -1,5 +1,7 @@
 # 🏈 nfl-stats-mcp
 
+[![CI](https://github.com/alexbrogan10/nfl-stats-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/alexbrogan10/nfl-stats-mcp/actions/workflows/ci.yml)
+
 An [MCP](https://modelcontextprotocol.io) server that lets Claude (or any MCP client) answer
 real NFL questions with real data: 25+ years of play-by-play and player stats from
 [nflverse](https://github.com/nflverse), updated weekly during the season.
@@ -44,7 +46,7 @@ so it can look things up instead of guessing.
 Requires Python 3.10+.
 
 ```bash
-git clone https://github.com/<you>/nfl-stats-mcp.git
+git clone https://github.com/alexbrogan10/nfl-stats-mcp.git
 cd nfl-stats-mcp
 python -m venv .venv
 .venv/Scripts/activate        # Windows; use `source .venv/bin/activate` on macOS/Linux
